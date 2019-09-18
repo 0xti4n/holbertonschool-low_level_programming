@@ -2,7 +2,7 @@
 
 /**
  * main - Entry point
- * print sizes of different type 
+ *
  * Return: Always 0 (Success)
  */
 int main(void)
