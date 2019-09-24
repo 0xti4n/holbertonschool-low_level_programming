@@ -1,16 +1,16 @@
 #include "holberton.h"
 
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always 0.
+ *_isalpha - check for alphabetic character
+ *@c: The character to print
+ * Return: 1 if c is a letter, lowercase or uppercase, and 0 otherwise
  */
 int _isalpha(int c)
 {
-	if ((c >= 'a' && c <= 'z' ) || 
+	if ((c >= 'a' && c <= 'z') ||
 	(c >= 'A' && c <= 'Z'))
 	return (1);
-	
-	else 
+
+	else
 	return (0);
 }
