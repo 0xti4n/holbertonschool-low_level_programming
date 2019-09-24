@@ -1,13 +1,13 @@
 #include "holberton.h"
 
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always 0.
+ *print_sign - print the sign of a number
+ *@n: The character to print
+ * Return: 1 and print +, 0 and print 0, -1 and print -
  */
 int print_sign(int n)
 {
-	if (n > 0 )
+	if (n > 0)
 	{
 	_putchar('+');
 	return (1);
