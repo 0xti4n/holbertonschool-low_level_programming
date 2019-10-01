@@ -1,5 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
 
 /**
 *_puts - print a string.
@@ -9,5 +8,8 @@
 
 void _puts(char *str)
 {
-	puts(str);
+	while (*str)
+	_putchar(*str++);
+
+	_putchar('\n');
 }
