@@ -15,7 +15,7 @@ char *rot13(char *s)
 		{
 			s[i] += 13;
 		}
-		
+
 		else
 		{
 			while ((s[i] >= 'n' && s[i] <= 'z') || (s[i] >= 'N' && s[i] <= 'Z'))
