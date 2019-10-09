@@ -3,7 +3,7 @@
 /**
 * _strstr - locates a substring.
 * @haystack: A valid string.
-* @needle: String pattern that you want to search inside haystack.
+* @needle: String pattern that search inside haystack.
 * Return: The equal pattern.
 */
 
