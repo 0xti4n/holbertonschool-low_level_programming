@@ -25,15 +25,15 @@ int _atoi(char *s)
 	if (b >= 48 && b <= 57)
 	{
 		b = s[a] - 48;
-	}
-	if (e == 0)
-	{
-		e = b;
-	}
-	else
-	{
-		e = (e * 10) + b;
-		++j;
+		if (e == 0)
+		{
+			e = b;
+		}
+		else
+		{
+			e = (e * 10) + b;
+			++j;
+		}
 	}
 	else if (j > 0)
 	{
