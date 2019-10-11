@@ -9,11 +9,12 @@ int _atoi(char *s)
 {
 	int a, b, si, j;
 	unsigned int e;
+
 	a = 0;
 	si = 1;
 	e = 0;
 	j = 0;
-	
+
 	while (s[a] != '\0')
 	{
 		b = s[a];
