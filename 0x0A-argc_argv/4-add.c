@@ -20,6 +20,12 @@ int main(__attribute__((unused))int argc, char *argv[])
 			printf("Error\n");
 			return (1);
 		}
+
+		if (*argv[i] != 3)
+		{
+		printf("\n");
+		return (0);
+		}
 	}
 	printf("%d\n", sum);
 	return (0);
