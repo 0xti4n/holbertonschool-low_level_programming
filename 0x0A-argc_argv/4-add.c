@@ -15,7 +15,7 @@ int main(__attribute__((unused)) int argc, char *argv[])
 	{
 		sum += atoi(argv[i]);
 
-		if ((*argv[i] >= 32 && *argv[i] <= 47) || 
+		if ((*argv[i] >= 32 && *argv[i] <= 47) ||
 			(*argv[i] >= 58 && *argv[i] <= 64) ||
 			(*argv[i] >= 65 && *argv[i] <= 126))
 		{
