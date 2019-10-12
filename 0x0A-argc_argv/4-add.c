@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 			return (1);
 		}
 
-		if (*argv[i] < argc)
+		if (argc > *argv[i])
 		{
 			printf("\n");
 			return (0);
