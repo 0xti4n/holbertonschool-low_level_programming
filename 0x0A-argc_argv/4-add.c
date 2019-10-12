@@ -7,7 +7,7 @@
 * @argv: Holds the arguments.
 * Return: 0 to succes.
 */
-int main(__attribute__((unused))int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	int sum = 0, i;
 
@@ -21,10 +21,10 @@ int main(__attribute__((unused))int argc, char *argv[])
 			return (1);
 		}
 
-		if (*argv[i] != 3)
+		if (*argv[i] < argc)
 		{
-		printf("\n");
-		return (0);
+			printf("\n");
+			return (0);
 		}
 	}
 	printf("%d\n", sum);
