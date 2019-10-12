@@ -7,21 +7,21 @@
 * @argv: Holds the arguments.
 * Return: 0 to succes.
 */
-int main(__attribute__((unused)) int argc, char *argv[])
+int main(int argc, char *argv[])
 {
-	int sum = 0, i;
+	int sum = 0, b, i;
 
-	for (i = 1; argv[i]; i++)
+	for (b = 1; b < argc; b++)
 	{
-		if ((*argv[i] >= 32 && *argv[i] <= 47) ||
-			(*argv[i] >= 58 && *argv[i] <= 64) ||
-			(*argv[i] >= 65 && *argv[i] <= 126))
+		for (i = 0; argv[b][i]; i++)
 		{
-			printf("Error\n");
-			return (1);
+			if (argv[b][i] < '0' || argv[b][i] > '9')
+			{
+				printf("Error\n");
+				return (1);
+			}
 		}
-
-		sum += atoi(argv[i]);
+		sum += atoi(argv[b]);
 	}
 	printf("%d\n", sum);
 	return (0);
