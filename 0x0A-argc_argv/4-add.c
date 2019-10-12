@@ -7,7 +7,7 @@
 * @argv: Holds the arguments.
 * Return: 0 to succes.
 */
-int main(int argc, char *argv[])
+int main(__attribute__((unused)) int argc, char *argv[])
 {
 	int sum = 0, i;
 
@@ -15,16 +15,12 @@ int main(int argc, char *argv[])
 	{
 		sum += atoi(argv[i]);
 
-		if (*argv[i] >= 97 && *argv[i] <= 122)
+		if ((*argv[i] >= 32 && *argv[i] <= 47) || 
+			(*argv[i] >= 58 && *argv[i] <= 64) ||
+			(*argv[i] >= 65 && *argv[i] <= 126))
 		{
 			printf("Error\n");
 			return (1);
-		}
-
-		if (argc > *argv[i])
-		{
-			printf("\n");
-			return (0);
 		}
 	}
 	printf("%d\n", sum);
