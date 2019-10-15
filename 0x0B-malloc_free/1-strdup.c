@@ -10,12 +10,11 @@
 char *_strdup(char *str)
 {
 	char *dest;
-	int i = 0;
+	int i;
 	int b;
 
-	while (str[i] != '\0')
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		i++;
 	}
 	i++;
 
@@ -26,7 +25,7 @@ char *_strdup(char *str)
 		return (NULL);
 	}
 
-	for (b = 0; b < i; b++)
+	for (b = 0; b <= i; b++)
 	{
 		dest[b] = str[b];
 	}
