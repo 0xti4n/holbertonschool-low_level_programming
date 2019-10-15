@@ -14,12 +14,14 @@ char *_strdup(char *str)
 	int b;
 
 	while (str[i] != '\0')
+	{
 		i++;
+	}
 	i++;
 
-	dest = malloc(i * sizeof(char));
+	dest = malloc(sizeof(char) * i);
 
-	if (dest == NULL || str == NULL)
+	if (dest == 0 || str == NULL)
 	{
 		return (NULL);
 	}
