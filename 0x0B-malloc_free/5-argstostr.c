@@ -2,14 +2,15 @@
 #include <stdlib.h>
 
 /**
-* main - check the code for Holberton School students.
-*
-* Return: Always 0.
+* argstostr - concatenates all the arguments of your program.
+* @ac: The number of arguments.
+* @av: The array that store the arguments.
+* Return: A pointer to the new string.
 */
 
 char *argstostr(int ac, char **av)
 {
-	int a, b, c;
+	int a, b, j, tam;
 	char *p;
 
 	if (ac == 0 || av == NULL)
@@ -19,28 +20,30 @@ char *argstostr(int ac, char **av)
 
 	for (a = 0; a < ac; a++)
 	{
-		for (b = 0; av[a][b] != '\0'; b++)
+		for (b = 0; av[a][b]; b++)
 		{
-			c++;
+			tam++;
 		}
+		tam++;
 	}
-	c++;
-	
-	p = malloc(c * sizeof(char));
-	
+
+	p = malloc(sizeof(char) * tam);
+
 	if (p == NULL)
 	{
 		return (NULL);
 	}
 
+	j = 0;
+
 	for (a = 0; a < ac; a++)
 	{
-		for (b = 0; av[a][b] != '\0'; b++)
+		for (b = 0; av[a][b]; b++)
 		{
-			int j;
-			p[j] = av[a][b];
-			j++;
+			p[j++] = av[a][b];
 		}
+		p[j++] = '\n';
 	}
+	p[tam] = '\0';
 	return (p);
 }
