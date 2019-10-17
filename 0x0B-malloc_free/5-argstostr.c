@@ -24,10 +24,9 @@ char *argstostr(int ac, char **av)
 		{
 			tam++;
 		}
-		tam++;
 	}
 
-	p = malloc(sizeof(char) * tam);
+	p = malloc(sizeof(char) * tam + 1);
 
 	if (p == NULL)
 	{
