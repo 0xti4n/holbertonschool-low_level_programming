@@ -2,9 +2,12 @@
 #include "dog.h"
 
 /**
-* main - check the code for Holberton School students.
-*
-* Return: Always 0.
+* init_dog - Initialize a variable.
+* @d: The Struct.
+* @name: The name of the dog
+* @age: Dog's age
+* @owner: The dog owner.
+* Return: Nothing.
 */
 
 void init_dog(struct dog *d, char *name, float age, char *owner)
