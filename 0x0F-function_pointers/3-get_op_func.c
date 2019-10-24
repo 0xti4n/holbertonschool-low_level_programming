@@ -2,10 +2,9 @@
 #include <stdio.h>
 
 /**
-* struct op - Struct op
-*
-* @op: The operator
-* @f: The function associated
+* get_op_func - Selects the correct function to perform the operation asked.
+* @s: The character to compare.
+* Return: The function associated.
 */
 
 int (*get_op_func(char *s))(int, int)
@@ -18,12 +17,12 @@ int (*get_op_func(char *s))(int, int)
 		{"%", op_mod},
 		{NULL, NULL}
 	};
-	
-	int i;
+
+	int i = 0;
 
 	while (ops[i].op != NULL)
 	{
-		if (ops[i].op == s)
+		if (*(ops[i].op) == *s)
 		{
 			return (ops[i].f);
 		}
