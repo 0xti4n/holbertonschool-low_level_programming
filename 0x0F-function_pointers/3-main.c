@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 		exit(100);
 	}
 
-	calc = (get_op_func(argv[2])(num1, num2));
+	calc = (*get_op_func(argv[2]))(num1, num2);
 	printf("%i\n", calc);
 	return (0);
 }
