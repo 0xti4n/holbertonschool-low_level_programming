@@ -1,7 +1,6 @@
 #include "variadic_functions.h"
 #include <stdarg.h>
 #include <stdio.h>
-
 /**
 * print_all - function that prints anything.
 * @format: The format to compare.
@@ -33,11 +32,11 @@ void print_all(const char * const format, ...)
 
 			case 's':
 			c = va_arg(list, char *);
+			printf("%s", c);
 			if (c == NULL)
 			{
 				c = "(nil)";
 			}
-			printf("%s", c);
 			break;
 		}
 		if ((format[i + 1] != '\0') && (format[i] == 'c' || format[i] == 'i'
