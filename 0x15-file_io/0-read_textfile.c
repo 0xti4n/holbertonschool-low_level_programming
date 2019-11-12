@@ -14,7 +14,7 @@
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	ssize_t con, rd;
+	ssize_t con, rd, wr;
 	char *buf;
 
 	if (filename == NULL)
@@ -26,15 +26,25 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	con = open(filename, O_RDONLY);
 	if (con == -1)
+	{
+		free(buf);
 		return (0);
+	}
 
 	rd = read(con, buf, letters);
 	if (rd == -1)
+	{
+		free(buf);
 		return (0);
+	}
 
-	write(STDOUT_FILENO, buf, rd);
-	if (rd == -1)
+	wr = write(STDOUT_FILENO, buf, rd);
+	if (wr == -1)
+	{
+		free(buf);
 		return (0);
+	}
+	close(con);
 
 	return (rd);
 }
