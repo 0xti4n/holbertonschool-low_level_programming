@@ -4,7 +4,8 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include "holberton.h"
-#ifndef BUF_SIZE /* Allow "cc -D" to override definition */
+
+#ifndef BUF_SIZE
 #define BUF_SIZE 1024
 #endif
 
