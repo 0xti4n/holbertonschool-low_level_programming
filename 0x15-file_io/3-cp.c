@@ -14,7 +14,8 @@
 
 int main(int argc, char *argv[])
 {
-	int ifd, ofd, numread;
+	int ifd, ofd;
+	ssize_t numread;
 	char buf[1024];
 
 	if (argc != 3)
