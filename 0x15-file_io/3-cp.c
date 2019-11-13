@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 {
 	int ifd, ofd;
 	ssize_t numread;
-	char buf[];
+	char buf[BUF_SIZE];
 
 	if (argc != 3)
 	{
