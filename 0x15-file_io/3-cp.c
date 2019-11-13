@@ -16,7 +16,7 @@
  * Return: 1 if worked or -1 if a error ocurred.
  */
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
 	int ifd, ofd;
 	ssize_t numread;
