@@ -26,25 +26,25 @@ int main(int argc, char *argv[])
 	ifd = open(argv[1], O_RDONLY);
 	if (ifd == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 	ofd = open(argv[2], O_CREAT | O_WRONLY, 0664);
 	if (ofd == -1)
 	{
 		close(ifd);
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
 	while ((numread = read(ifd, buf, 1024)) > 0)
 	{
 		if (write(ofd, buf, numread) != numread)
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[1]);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
 	}
 	if (numread == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[2]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
 
