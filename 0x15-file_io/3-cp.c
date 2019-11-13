@@ -44,8 +44,10 @@ int main(int argc, char *argv[])
 	while ((numread = read(file_from, buf, BUF_SIZE)) > 0)
 	{
 		if (write(file_to, buf, numread) != numread)
+		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
+		}
 	}
 	if (numread == -1)
 	{
