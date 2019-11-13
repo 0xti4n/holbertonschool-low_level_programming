@@ -33,7 +33,6 @@ int main(int argc, char *argv[])
 	ofd = open(argv[2], O_CREAT | O_WRONLY, 0664);
 	if (ofd == -1)
 	{
-		close(ifd);
 		dprintf(STDERR_FILENO, "Error: Can't write to %s", argv[2]);
 		exit(99);
 	}
