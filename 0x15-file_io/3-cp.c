@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 	char buf[BUF_SIZE];
 
 	if (argc != 3)
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to %s\n", argv[0]);
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 
 	file_from = open(argv[1], O_RDONLY);
