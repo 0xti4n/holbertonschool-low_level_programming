@@ -3,6 +3,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <unistd.h>
 #include "holberton.h"
 
 #ifndef BUF_SIZE
@@ -16,7 +17,7 @@
  * Return: 1 if worked or -1 if a error ocurred.
  */
 
-int main(int argc, char **argv)
+int main(int argc, char *argv[])
 {
 	int ifd, ofd;
 	ssize_t numread;
@@ -52,7 +53,7 @@ int main(int argc, char **argv)
 		exit(98);
 	}
 
-	if (close(ifd) == -1 || close(ofd) == -1)
+	if ((close(ifd) == -1) || (close(ofd) == -1))
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ifd);
 		exit(100);
