@@ -1,3 +1,4 @@
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
@@ -11,10 +12,10 @@
 #endif
 
 /**
- * main - creates a file.
- * @argc: New file.
+ * main - copies a file.
+ * @argc: The number of arguments.
  * @argv: The content to write.
- * Return: 1 if worked or -1 if a error ocurred.
+ * Return: nothing.
  */
 
 int main(int argc, char *argv[])
