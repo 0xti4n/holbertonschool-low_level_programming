@@ -4,6 +4,9 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include "holberton.h"
+#ifndef BUF_SIZE /* Allow "cc -D" to override definition */
+#define BUF_SIZE 1024
+#endif
 
 /**
  * main - creates a file.
@@ -16,7 +19,7 @@ int main(int argc, char *argv[])
 {
 	int ifd, ofd;
 	ssize_t numread;
-	char buf[1024];
+	char buf[];
 
 	if (argc != 3)
 	{
@@ -30,13 +33,13 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	ofd = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
+	ofd = open(argv[2], O_CREAT | O_WRONLY, 0664);
 	if (ofd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
-	while ((numread = read(ifd, buf, 1024)) > 0)
+	while ((numread = read(ifd, buf, BUF_SIZE)) > 0)
 	{
 		if (write(ofd, buf, numread) != numread)
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
