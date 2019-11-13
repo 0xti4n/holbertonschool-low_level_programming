@@ -19,7 +19,7 @@
 
 int main(int argc, char *argv[])
 {
-	int ifd, ofd;
+	int file_from, file_to;
 	ssize_t numread;
 	char buf[BUF_SIZE];
 
@@ -29,21 +29,21 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 
-	ifd = open(argv[1], O_RDONLY);
-	if (ifd == -1)
+	file_from = open(argv[1], O_RDONLY);
+	if (file_from == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
 		exit(98);
 	}
-	ofd = open(argv[2], O_CREAT | O_WRONLY, 0664);
-	if (ofd == -1)
+	file_to = open(argv[2], O_CREAT | O_WRONLY, 0664);
+	if (file_to == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 		exit(99);
 	}
-	while ((numread = read(ifd, buf, BUF_SIZE)) > 0)
+	while ((numread = read(file_from, buf, BUF_SIZE)) > 0)
 	{
-		if (write(ofd, buf, numread) != numread)
+		if (write(file_to, buf, numread) != numread)
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
 			exit(99);
 	}
@@ -53,9 +53,9 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	if ((close(ifd) == -1) || (close(ofd) == -1))
+	if ((close(file_from) == -1) || (close(file_to) == -1))
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", ifd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
 		exit(100);
 	}
 	exit(EXIT_SUCCESS);
