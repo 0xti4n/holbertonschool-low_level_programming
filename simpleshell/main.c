@@ -1,33 +1,39 @@
 #include "shell.h"
 
 /**
- * 
- * 
+ * main - main function.
+ * Return: exit
  */
-int main(void)
+int main(int ac, char **av, char **env)
 {
-	char *read;
-	char **args;
 	pid_t child;
+	char *read, *get_path;
 	char *del = " \n";
-	int i;
-	
+	int i, status, a = 0;
+	(void) ac;
+
+	get_path = _getenv("PATH", env);
+	env = parse_line(get_path, ":");
+
+	while (env[a])
+	{
+		printf("%s\n", env[a]);
+		a++;
+	}
+
 	while (1)
 	{
 		read = read_line();
-		if (read == NULL)
-			break;
-		args = parse_line(read, del);
-		built_in_command(args);
-		child = fork();
+		av = parse_line(read, del);
 
+		child = fork();
 		if (child == 0)
 		{
-			if (execve(args[0], args, NULL) == -1)
-			{
-				perror("Error");
+				if (av[0] && execve(av[0], av, NULL) == -1)
+				{
+					perror("Error");
+				}
 				exit(EXIT_FAILURE);
-			}
 		}
 		else if (child == -1)
 		{
@@ -35,11 +41,12 @@ int main(void)
 		}
 		else
 		{
-			wait(NULL);
+			wait(&status);
 		}
 	}
 	free(read);
-	for (i = 0; args[i] != NULL; i++)
-		free(args[i]);
+	for (i = 0; av[i] != NULL; i++)
+		free(av[i]);
+	free(av);
 	exit(EXIT_SUCCESS);
 }

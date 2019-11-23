@@ -4,9 +4,9 @@
 char **parse_line(char *read, char *del)
 {
 	int bufsize = 64, i = 0;
-	char **tokens = malloc(bufsize * sizeof(char*));
+	char **tokens = malloc(bufsize * sizeof(char *));
 	char *token;
-	
+
 	if (!tokens)
 	{
 		perror("Error\n");
@@ -20,7 +20,7 @@ char **parse_line(char *read, char *del)
 		if (i >= bufsize)
 		{
 			bufsize = bufsize + bufsize;
-			tokens = _realloc(tokens, bufsize * sizeof(char*), bufsize);
+			tokens = _realloc(tokens, bufsize * sizeof(char *), bufsize);
 			if (!tokens)
 			{
 				perror("Error\n");
@@ -30,5 +30,5 @@ char **parse_line(char *read, char *del)
 		token = strtok(NULL, del);
 	}
 	tokens[i] = NULL;
-	return tokens;
+	return (tokens);
 }

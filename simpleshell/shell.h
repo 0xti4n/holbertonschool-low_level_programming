@@ -16,7 +16,7 @@
 char *read_line(void);
 char **parse_line(char *read, char *del);
 
-int built_in_command(char **args);
+void built_in_command(char **args);
 
 
 int _strlen(char *s);
