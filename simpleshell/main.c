@@ -22,6 +22,11 @@ int main(__attribute__((unused))int ac, char **av, char **env)
 		read = read_line();
 		av = parse_line(read, del);
 		av[0] = concatenate_list(&head, av[0]);
+		if (av[0] != NULL)
+		{
+			if ((_strcmp(av[0], "exit")) == 0)
+				exit(EXIT_SUCCESS);
+		}
 		
 		child = fork();
 		if (child == 0)

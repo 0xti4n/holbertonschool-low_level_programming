@@ -6,12 +6,12 @@
  */
 void built_in_command(char **args)
 {
-	int n = 1, i, switcharg = 0;
-	char *List[n];
+	int i, switcharg = 0;
+	char *List[1];
 
 	List[0] = "exit";
 
-	for (i = 0; i < n; i++)
+	for (i = 0; i < 1; i++)
 	{
 		if (_strcmp(args[0], List[i]) == 0)
 		{
