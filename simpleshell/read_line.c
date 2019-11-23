@@ -10,9 +10,10 @@ char *read_line(void)
 	{
 		return (NULL);
 	}
-	write(STDOUT_FILENO, "($)->", 5);
+	write(STDOUT_FILENO, "($) ", 4);
 	if (getline(&buff, &size, stdin) == EOF)
 	{
+		write(STDOUT_FILENO, "logout\n", 7);
 		exit(EXIT_FAILURE);
 	}
 	return (buff);
