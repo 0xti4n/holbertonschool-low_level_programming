@@ -19,6 +19,7 @@ char *concatenate_list(list_t **head, char *cmd)
 				newpath = str_concat(temp->str, cmd2);
 				if (!access(newpath, X_OK))
 				{
+					free(cmd2);
 					return (newpath);
 				}
 				temp = temp->next;

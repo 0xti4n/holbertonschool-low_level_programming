@@ -38,7 +38,7 @@ char *concatenate_list(list_t **head, char *cmd);
 char *read_line(void);
 char **parse_line(char *read, char *del);
 
-void built_in_command(char **args);
+void built_in_command(char **av, char **env);
 
 
 int _strlen(char *s);

@@ -4,26 +4,24 @@
  *
  *
  */
-void built_in_command(char **args)
+void built_in_command(char **av, char **env)
 {
-	int i, switcharg = 0;
-	char *List[1];
+	int i = 0;
 
-	List[0] = "exit";
-
-	for (i = 0; i < 1; i++)
+	if (av[0] != NULL)
 	{
-		if (_strcmp(args[0], List[i]) == 0)
+		if ((_strcmp(av[0], "env")) == 0)
 		{
-			switcharg = i + 1;
-			break;
+			while (env[i])
+			{
+				write(STDOUT_FILENO, env[i], _strlen((env[i])));
+				write(STDOUT_FILENO, "\n", 1);
+				i++;
+			}
 		}
-	}
-	switch (switcharg)
-	{
-		case 1:
-		exit(0);
-		default:
-		break;
+		if ((_strcmp(av[0], "exit")) == 0)
+			{
+				exit(EXIT_SUCCESS);
+			}
 	}
 }
