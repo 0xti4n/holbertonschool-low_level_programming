@@ -15,8 +15,8 @@ char *concatenate_list(list_t **head, char *cmd)
 		{
 			while (temp)
 			{
-				cmd2 = str_concat("/", cmd);
-				newpath = str_concat(temp->str, cmd2);
+				cmd2 = string_nconcat("/", cmd, _strlen(cmd));
+				newpath = string_nconcat(temp->str, cmd2, _strlen(cmd2));
 				if (!access(newpath, X_OK))
 				{
 					free(cmd2);

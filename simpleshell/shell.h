@@ -44,8 +44,8 @@ void built_in_command(char **av, char **env);
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
 char *_strcat(char *dest, char *src);
+char *string_nconcat(char *s1, char *s2, unsigned int n);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
-char *str_concat(char *s1, char *s2);
 char *_getenv(char *name, char **env);
 
 #endif

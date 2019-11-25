@@ -9,7 +9,7 @@ int main(__attribute__((unused))int ac, char **av, char **env)
 	pid_t child;
 	char *read, *get_path, *del = " \n";
 	char **paths;
-	int i, status;
+	int status;
 	list_t *head;
 
 	head = NULL;
@@ -42,9 +42,5 @@ int main(__attribute__((unused))int ac, char **av, char **env)
 			wait(&status);
 		}
 	}
-	for (i = 0; av[i] != NULL; i++)
-			free(av[i]);
-		free(av);
-	free(read);
 	exit(EXIT_SUCCESS);
 }

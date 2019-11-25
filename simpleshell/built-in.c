@@ -6,7 +6,7 @@
  */
 void built_in_command(char **av, char **env)
 {
-	int i = 0;
+	unsigned int i = 0;
 
 	if (av[0] != NULL)
 	{
