@@ -27,16 +27,12 @@ int main(__attribute__((unused))int ac, char **av, char **env)
 		child = fork();
 		if (child == 0)
 		{
-				if (av[0] && execve(av[0], av, NULL) == -1)
-				{
+				if (av[0] && (execve(av[0], av, NULL) == -1))
 					perror("Error");
-				}
 				exit(EXIT_FAILURE);
 		}
 		else if (child == -1)
-		{
 			perror("FORK FAILURE\n");
-		}
 		else
 		{
 			wait(&status);

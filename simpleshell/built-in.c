@@ -12,7 +12,7 @@ void built_in_command(char **av, char **env)
 	{
 		if ((_strcmp(av[0], "env")) == 0)
 		{
-			while (env[i])
+			while (env[i] != NULL)
 			{
 				write(STDOUT_FILENO, env[i], _strlen((env[i])));
 				write(STDOUT_FILENO, "\n", 1);

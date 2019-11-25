@@ -49,6 +49,7 @@ void free_list(list_t *head)
 		p = p->next;
 		head = p;
 	}
+	free(head);
 }
 
 /**
