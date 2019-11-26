@@ -30,19 +30,22 @@ typedef struct list_s
 	struct list_s *next;
 } list_t;
 
+extern char **environ;
+
 list_t *add_node(list_t **head, const char *str);
 void free_list(list_t *head);
 void list_creator(char **paths, list_t **head);
 char *concatenate_list(list_t **head, char *cmd);
 
-char *read_line(void);
+char *read_line(list_t *head);
 char **parse_line(char *read, char *del);
 
-void built_in_command(char **av, char **env);
+void built_in_command(char **av, char **env, char *read, list_t *head);
 
 
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
+char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
 char *string_nconcat(char *s1, char *s2, unsigned int n);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);

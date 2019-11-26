@@ -4,7 +4,7 @@
  *
  *
  */
-void built_in_command(char **av, char **env)
+void built_in_command(char **av, char **env, char *read, list_t *head)
 {
 	unsigned int i = 0;
 
@@ -21,6 +21,8 @@ void built_in_command(char **av, char **env)
 		}
 		if ((_strcmp(av[0], "exit")) == 0)
 			{
+				free(read);
+				free_list(head);
 				exit(EXIT_SUCCESS);
 			}
 	}

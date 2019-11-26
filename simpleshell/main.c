@@ -16,12 +16,12 @@ int main(__attribute__((unused))int ac, char **av, char **env)
 	get_path = _getenv("PATH", env);
 	paths = parse_line(get_path, ":");
 	list_creator(paths, &head);
-	
+
 	while (1)
 	{
-		read = read_line();
+		read = read_line(head);
 		av = parse_line(read, del);
-		built_in_command(av, env);
+		built_in_command(av, env, read, head);
 		av[0] = concatenate_list(&head, av[0]);
 		
 		child = fork();
@@ -37,6 +37,8 @@ int main(__attribute__((unused))int ac, char **av, char **env)
 		{
 			wait(&status);
 		}
+		free(read);
+		free(av);
 	}
 	exit(EXIT_SUCCESS);
 }

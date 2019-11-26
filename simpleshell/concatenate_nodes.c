@@ -22,6 +22,8 @@ char *concatenate_list(list_t **head, char *cmd)
 					free(cmd2);
 					return (newpath);
 				}
+				free(cmd2);
+				free(newpath);
 				temp = temp->next;
 			}
 		}
