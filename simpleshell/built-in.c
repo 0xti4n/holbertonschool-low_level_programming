@@ -22,6 +22,7 @@ void built_in_command(char **av, char **env, char *read, list_t *head)
 		if ((_strcmp(av[0], "exit")) == 0)
 			{
 				free(read);
+				free(av);
 				free_list(head);
 				exit(EXIT_SUCCESS);
 			}
