@@ -47,6 +47,7 @@ int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
 char *_strcpy(char *dest, char *src);
 char *_strcat(char *dest, char *src);
+char *_strdup(char *str);
 char *string_nconcat(char *s1, char *s2, unsigned int n);
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 char *_getenv(char *name, char **env);

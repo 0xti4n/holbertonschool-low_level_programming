@@ -120,17 +120,19 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 char *_getenv(char *name, char **env)
 {
     int i = 0;
-    char *token;
+    char *token, *copy;
 
     while(env[i])
     {
-         token = strtok(env[i], "=" );
+		copy = _strdup(env[i]);
+		token = strtok(copy, "=" );
 
         if(_strcmp(token, name) == 0)
         {
             token = strtok(NULL, "=" );
             return (token);
         }
+		free(copy);
         i++;
     }
     if (name == NULL)
