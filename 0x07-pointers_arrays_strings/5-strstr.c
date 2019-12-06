@@ -9,21 +9,26 @@
 
 char *_strstr(char *haystack, char *needle)
 {
-	while (*haystack)
-	{
-		char *Begin = haystack;
-		char *pattern = needle;
+	char *begin = haystack;
+	char *check;
+	char *pattern;
 
-		while (*haystack && *needle && *haystack == *needle)
+	while (*begin)
+	{
+		pattern = needle;
+		check = begin;
+
+		while (*check && *pattern && *check == *pattern)
 		{
-			haystack++;
-			needle++;
+			check++;
+			pattern++;
+
+			if (!*(pattern) || !*(check))
+			{
+				return (begin);
+			}
 		}
-		if (!*pattern)
-		{
-			return (Begin);
-		}
-		haystack++;
+		begin++;
 	}
 	return ('\0');
 }
