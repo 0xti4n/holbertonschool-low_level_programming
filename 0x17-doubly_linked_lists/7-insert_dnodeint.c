@@ -61,41 +61,6 @@ unsigned int len_node(const dlistint_t *h)
 	return (c);
 }
 
-/**
- *add_node - Adds a new node at the beginning of a list.
- *@head: The node.
- *@n: Number to add to node.
- * Return: new node.
- */
-
-dlistint_t *add_node(dlistint_t **head, const int n)
-{
-	dlistint_t *new;
-
-	if (head == NULL)
-		return (NULL);
-	new = malloc(sizeof(dlistint_t));
-	if (new == NULL)
-		return (NULL);
-
-	if (*head == NULL)
-	{
-		new->n = n;
-		new->next = NULL;
-		new->prev = NULL;
-		*head = new;
-		return (new);
-	}
-
-	else
-	{
-		new->n = n;
-		new->next = *head;
-		new->prev = NULL;
-		*head = new;
-		return (new);
-	}
-}
 
 /**
  *insert_dnodeint_at_index - inserts a new node at a given position..
@@ -120,7 +85,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 
 	tmp = *h;
 	if (idx == 0)
-		return (add_node(h, n));
+		return (add_dnodeint(h, n));
 	if (idx == len_node(*h))
 		return (add_node_end(h, n));
 
