@@ -4,9 +4,10 @@
 #include "lists.h"
 
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always EXIT_SUCCESS.
+ *add_node_end- adds a new node at the end of a list.
+ *@head: The node to create
+ *@n: number to add to node.
+ * Return: new node.
  */
 
 dlistint_t *add_node_end(dlistint_t **head, const int n)
@@ -22,7 +23,7 @@ dlistint_t *add_node_end(dlistint_t **head, const int n)
 	new = malloc(sizeof(dlistint_t));
 	if (new == NULL)
 		return (NULL);
-	if(*head == NULL)
+	if (*head == NULL)
 	{
 		new->n = n;
 		new->prev = NULL;
@@ -32,7 +33,7 @@ dlistint_t *add_node_end(dlistint_t **head, const int n)
 	}
 	else
 	{
-		while(current->next != NULL)
+		while (current->next != NULL)
 			current = current->next;
 		current->next = new;
 		new->n = n;
@@ -43,9 +44,9 @@ dlistint_t *add_node_end(dlistint_t **head, const int n)
 }
 
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always EXIT_SUCCESS.
+ *len_node - returns the number of elements in a linked list.
+ *@h: The list to count.
+ * Return: The count.
  */
 
 unsigned int len_node(const dlistint_t *h)
@@ -61,9 +62,10 @@ unsigned int len_node(const dlistint_t *h)
 }
 
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always EXIT_SUCCESS.
+ *add_node - Adds a new node at the beginning of a list.
+ *@head: The node.
+ *@n: Number to add to node.
+ * Return: new node.
  */
 
 dlistint_t *add_node(dlistint_t **head, const int n)
@@ -96,42 +98,48 @@ dlistint_t *add_node(dlistint_t **head, const int n)
 }
 
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always EXIT_SUCCESS.
+ *insert_dnodeint_at_index - inserts a new node at a given position..
+ *@h: The list.
+ *@idx: The index to add.
+ *@n: The data to add.
+ * Return: new node.
  */
 
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-    dlistint_t *tmp = *h;
-    dlistint_t *new;
-    unsigned int i = 0;
+	dlistint_t *tmp;
+	dlistint_t *new;
+	unsigned int i = 0;
 
-    new = malloc(sizeof(dlistint_t));
-    if (new == NULL)
-        return(NULL);
-    if (idx == 0)
-      return(add_node(h, n));
-    if (idx == len_node(*h))
-        return (add_node_end(h, n));
+	if (h == NULL)
+		return (NULL);
 
-    if (h != NULL)
-    {
-        while(tmp != NULL)
-        {
-            if (i == idx)
-            {
-                new->n = n;
-                new->next = tmp;
-                new->prev = tmp->prev;
-                tmp->prev->next = new;
-                tmp->prev = new;
-                return (new);
-            }
-            tmp = tmp->next;
-            i++;
-        }
-        return (NULL);
-    }
-    return (NULL);
+	new = malloc(sizeof(dlistint_t));
+	if (new == NULL)
+		return (NULL);
+
+	tmp = *h;
+	if (idx == 0)
+		return (add_node(h, n));
+	if (idx == len_node(*h))
+		return (add_node_end(h, n));
+
+	else
+	{
+		while (tmp != NULL)
+		{
+			if (i == idx)
+			{
+				new->n = n;
+				new->next = tmp;
+				new->prev = tmp->prev;
+				tmp->prev->next = new;
+				tmp->prev = new;
+				return (new);
+			}
+			tmp = tmp->next;
+			i++;
+		}
+		return (NULL);
+	}
 }

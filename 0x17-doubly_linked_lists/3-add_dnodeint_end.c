@@ -4,9 +4,10 @@
 #include "lists.h"
 
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always EXIT_SUCCESS.
+ *add_dnodeint_end - adds a new node at the end of a list.
+ *@head: The node to create
+ *@n: number to add to node.
+ * Return: new node.
  */
 
 dlistint_t *add_dnodeint_end(dlistint_t **head, const int n)

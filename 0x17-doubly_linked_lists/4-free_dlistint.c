@@ -4,19 +4,17 @@
 #include "lists.h"
 
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always EXIT_SUCCESS.
+ *free_dlistint - function that free a list.
+ *@head: The list to free.
+ * Return: Nothing.
  */
 
 void free_dlistint(dlistint_t *head)
 {
-    /* dlistint_t *temp = head; */
-
-    while(head->next != NULL)
-    {
-        head = head->next;
-        free(head->prev);
-    }
-    free(head);
+	while (head->next != NULL)
+	{
+		head = head->next;
+		free(head->prev);
+	}
+	free(head);
 }

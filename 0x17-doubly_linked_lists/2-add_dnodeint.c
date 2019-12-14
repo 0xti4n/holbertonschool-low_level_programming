@@ -4,9 +4,10 @@
 #include "lists.h"
 
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always EXIT_SUCCESS.
+ *add_dnodeint - Adds a new node at the beginning of a list.
+ *@head: The node.
+ *@n: Number to add to node.
+ * Return: new node.
  */
 
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)

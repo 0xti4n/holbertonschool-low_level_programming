@@ -4,9 +4,9 @@
 #include "lists.h"
 
 /**
- * main - check the code for Holberton School students.
- *
- * Return: Always EXIT_SUCCESS.
+ *dlistint_len - returns the number of elements in a linked list.
+ *@h: The list to count.
+ * Return: The count.
  */
 
 size_t dlistint_len(const dlistint_t *h)
