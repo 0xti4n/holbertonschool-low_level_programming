@@ -53,7 +53,7 @@ unsigned int len_node(const dlistint_t *h)
 {
 	unsigned int c = 0;
 
-	while (h->next != NULL)
+	while (h != NULL)
 	{
 		c++;
 		h = h->next;
