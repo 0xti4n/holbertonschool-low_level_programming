@@ -126,9 +126,9 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 
 	else
 	{
-		while (tmp != NULL)
+		while (tmp->next != NULL)
 		{
-			if (i == idx - 1)
+			if (i == idx)
 			{
 				new->n = n;
 				new->next = tmp;
