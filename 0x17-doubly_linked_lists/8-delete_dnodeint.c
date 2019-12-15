@@ -88,14 +88,11 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		tmp->next = NULL;
 		return (1);
 	}
-	else
-	{
-		tmp = get_nodeint_at_index(*head, index);
-		if (tmp == NULL)
-			return (-1);
-		tmp->prev->next = tmp->next;
-		tmp->next->prev = tmp->prev;
-		free(tmp);
-		return (1);
-	}
+	tmp = get_nodeint_at_index(*head, index);
+	if (tmp == NULL)
+		return (-1);
+	tmp->prev->next = tmp->next;
+	tmp->next->prev = tmp->prev;
+	free(tmp);
+	return (1);
 }
