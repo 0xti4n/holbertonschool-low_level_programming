@@ -59,26 +59,24 @@ unsigned int len(const dlistint_t *h)
 
 int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 {
-	dlistint_t *tmp;
-	unsigned int len1;
+	dlistint_t *temp;
 
 	if (head == NULL || *head == NULL)
 		return (-1);
-	len1 = len(*head);
-	if (index == 0 && (*head)->next != NULL)
+	if (index == 0 && (*head)->next)
 	{
 		*head = (*head)->next;
 		free((*head)->prev);
 		(*head)->prev = NULL;
 		return (1);
 	}
-	if (index == (len1 - 1))
+	temp = get_nodeint_at_index(*head, index);
+	if (temp == NULL)
+		return (NULL);
+	if (index == len(*head) - 1)
 	{
-		tmp = get_nodeint_at_index(*head, index);
-		if (tmp == NULL)
-			return (-1);
-		tmp = tmp->prev;
-		free(tmp->next);
+		temp = temp->prev;
+		free(temp->next);
 		tmp->next = NULL;
 		return (1);
 	}
@@ -88,11 +86,8 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 		*head = NULL;
 		return (1);
 	}
-	tmp = get_nodeint_at_index(*head, index);
-	if (tmp == NULL)
-		return (-1);
-	tmp->prev->next = tmp->next;
-	tmp->next->prev = tmp->prev;
-	free(tmp);
+	temp->prev->next = temp->next;
+	temp->next->prev = temp->prev;
+	free(temp);
 	return (1);
 }
