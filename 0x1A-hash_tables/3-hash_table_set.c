@@ -1,29 +1,6 @@
 #include "hash_tables.h"
 
 /**
-* add_node - Add new node at the beginning of a list.
-* @head: The argument.
-* @key: The key.
-* @value: the value
-* Return: The New node.
-*/
-
-hash_node_t *add_node(hash_node_t **head, const char *key, const char *value)
-{
-	hash_node_t *new_node;
-
-	new_node = malloc(sizeof(hash_node_t));
-	if (new_node == NULL)
-		return (NULL);
-
-	new_node->key = strdup(key);
-	new_node->value = strdup(value);
-	new_node->next = *head;
-	*head = new_node;
-	return (new_node);
-}
-
-/**
  * hash_table_set - check the code for Holberton School students.
  * @ht: array
  * @key: the key
@@ -34,7 +11,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int idx;
 	hash_node_t *head = NULL;
-	hash_node_t *tmp;
 
 	if (ht == NULL)
 		return (0);
@@ -42,26 +18,30 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 
 	idx = key_index((unsigned char *)key, ht->size);
+	new_node = malloc(sizeof(hash_node_t));
+	if (new_node == NULL)
+		return (NULL);
+
+	new_node->key = strdup(key);
+	new_node->value = strdup(value);
 
 	if (ht->array[idx] == 0)
 	{
-		ht->array[idx] = add_node(&head, key, value);
+		new_node->next = head;
+		ht->array[idx] = new_node;
 		return (1);
 	}
 
 	if (ht->array[idx] != 0)
 	{
-		tmp = head;
-		while (tmp->next != NULL)
+		if (strcmp(key, ht->array[idx]->key) == 0)
 		{
-			if (strcmp(key, tmp->key) == 0)
-			{
-				tmp->value = strdup(value);
-				return (1);
-			}
-			tmp = tmp->next;
+			free(ht->array[idx]->value);
+			ht->array[idx]->value = strdup(value);
+			return (1);
 		}
-		ht->array[idx] = add_node(&head, key, value);
+		new_node->next = head;
+		ht->array[idx] = new_node;
 		return (1);
 	}
 }
