@@ -16,10 +16,11 @@ hash_table_t *hash_table_create(unsigned long int size)
 	if (new == NULL)
 		return (NULL);
 
-	new->size = size;
-	new->array = calloc(size, char *);
+	new->array = calloc(size, sizeof(char *));
 	if (new->array == NULL)
 		return (NULL);
+
+	new->size = size;
 
 	return (new);
 }
