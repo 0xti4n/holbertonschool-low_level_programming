@@ -20,6 +20,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key)
 			return (ht->array[idx]->value);
 		else
 			return (NULL);
+		ht->array[idx] = ht->array[idx]->next;
 	}
 	return (NULL);
 }
