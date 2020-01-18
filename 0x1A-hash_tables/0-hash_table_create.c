@@ -21,7 +21,7 @@ hash_table_t *hash_table_create(unsigned long int size)
 	if (new->array == NULL)
 		return (NULL);
 
-	memset(new->array, '\0', size * sizeof(hash_node_t *));
+	memset(new->array, 0, size * sizeof(hash_node_t *));
 
 	return (new);
 }
