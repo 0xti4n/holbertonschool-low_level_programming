@@ -1,4 +1,4 @@
-.PHONY: all clean oclean fclean re
+.PHONY: all clean oclean fclean re install
 
 CC = gcc
 SRC = main.c holberton.c
