@@ -41,14 +41,14 @@ int binary_search(int *array, size_t size, int value)
 	{
 		middle = ((first + last) / 2);
 		print_numbers(array, first, last);
-		if (array[middle] == value)
-			return (middle);
+		if (array[middle] < value)
+			first = middle + 1;
 
-		if (array[middle] > value)
+		else if (array[middle] > value)
 			last = middle - 1;
 
 		else
-			first = middle + 1;
+			return (middle);
 	}
 	return (-1);
 }
