@@ -14,12 +14,15 @@ void print_numbers(int *array, size_t first, size_t last)
 {
 	size_t i;
 
-	printf("Searching in array:");
+	printf("Searching in array: ");
 	for (i = first; i < last; i++)
 	{
-		printf("%d, ", array[i]);
+		if (i < last)
+			printf("%d, ", array[i]);
+		else
+			printf("%d", array[i]);
 	}
-	printf("%d\n", array[last]);
+	printf("\n");
 }
 
 /**
